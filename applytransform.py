@@ -1,31 +1,28 @@
 #!/usr/bin/env python2
-
+#
+# License: GPL2
+# Copyright Mark "Klowner" Riedesel
+# https://github.com/Klowner/inkscape-applytransforms
+#
 import sys
 sys.path.append('/usr/share/inkscape/extensions')
-import re
 
 import inkex
 import cubicsuperpath
 from simpletransform import composeTransform, fuseTransform, parseTransform, applyTransformToPath, formatTransform
 
-
 class ApplyTransform(inkex.Effect):
     def __init__(self):
         inkex.Effect.__init__(self)
-        self.OptionParser.add_option("-s", "--selectedonly",
-                action="store", type="inkbool",
-                dest="selectedonly", default=False,
-                help="Apply transforms to shapes")
 
     def effect(self):
-        """
-        if self.options.selectedonly:
-            self.transformSelected(self.document, selected)
-        else:
-            self.transformAll(self.document)
-        """
-        self.recursiveFuseTransform(self.document.getroot(), parseTransform(None))
+        self.getselected()
 
+        if self.selected:
+            for id, shape in self.selected.items():
+                self.recursiveFuseTransform(shape, parseTransform(None))
+        else:
+            self.recursiveFuseTransform(self.document.getroot(), parseTransform(None))
 
     @staticmethod
     def objectToPath(node):
@@ -65,4 +62,3 @@ class ApplyTransform(inkex.Effect):
 if __name__ == '__main__':
     e = ApplyTransform()
     e.affect()
-
