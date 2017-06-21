@@ -9,7 +9,7 @@ sys.path.append('/usr/share/inkscape/extensions')
 
 import inkex
 import cubicsuperpath
-from simpletransform import composeTransform, fuseTransform, parseTransform, applyTransformToPath, formatTransform
+from simpletransform import composeTransform, fuseTransform, parseTransform, applyTransformToPath, applyTransformToPoint, formatTransform
 
 class ApplyTransform(inkex.Effect):
     def __init__(self):
@@ -51,6 +51,19 @@ class ApplyTransform(inkex.Effect):
             p = cubicsuperpath.parsePath(d)
             applyTransformToPath(transf, p)
             node.set('d', cubicsuperpath.formatPath(p))
+
+        elif node.tag == inkex.addNS('polygon', 'svg'):
+            points = node.get('points')
+            points = points.strip().split(' ')
+            for k,p in enumerate(points):
+                p = p.split(',')
+                p = [float(p[0]),float(p[1])]
+                applyTransformToPoint(transf, p)
+                p = [str(p[0]),str(p[1])]
+                p = ','.join(p)
+                points[k] = p
+            points = ' '.join(points)
+            node.set('points', points)
 
         elif node.tag == inkex.addNS('rect', 'svg'):
             node.set('transform', formatTransform(transf))
