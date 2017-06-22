@@ -9,6 +9,8 @@ sys.path.append('/usr/share/inkscape/extensions')
 
 import inkex
 import cubicsuperpath
+import math
+import simplestyle
 from simpletransform import composeTransform, fuseTransform, parseTransform, applyTransformToPath, applyTransformToPoint, formatTransform
 
 class ApplyTransform(inkex.Effect):
@@ -37,12 +39,29 @@ class ApplyTransform(inkex.Effect):
 
         return node
 
-    @staticmethod
-    def recursiveFuseTransform(node, transf=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]):
+    def recursiveFuseTransform(self, node, transf=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]):
         transf = composeTransform(transf, parseTransform(node.get("transform", None)))
 
         if 'transform' in node.attrib:
             del node.attrib['transform']
+
+        if 'style' in node.attrib:
+            style = node.attrib.get('style')
+            style = simplestyle.parseStyle(style)
+            update = False
+
+            if 'stroke-width' in style:
+                stroke_width = self.unittouu(style.get('stroke-width').strip())
+                # pixelsnap ext assumes scaling is similar in x and y
+                # and uses the x scale...
+                # let's try to be a bit smarter
+                stroke_width *= math.sqrt(transf[0][0]**2 + transf[1][1]**2)
+                style['stroke-width'] = str(stroke_width)
+                update = True
+
+            if update:
+                style = simplestyle.formatStyle(style)
+                node.attrib['style'] = style
 
         node = ApplyTransform.objectToPath(node)
 
@@ -69,7 +88,7 @@ class ApplyTransform(inkex.Effect):
             node.set('transform', formatTransform(transf))
 
         for child in node.getchildren():
-            ApplyTransform.recursiveFuseTransform(child, transf)
+            self.recursiveFuseTransform(child, transf)
 
 
 if __name__ == '__main__':

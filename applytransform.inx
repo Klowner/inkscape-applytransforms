@@ -4,6 +4,7 @@
 	<id>com.klowner.filter.applytransform</id>
 	<dependency type="executable" location="extensions">applytransform.py</dependency>
 	<dependency type="executable" location="extensions">inkex.py</dependency>
+	<dependency type="executable" location="extensions">simplestyle.py</dependency>
 	<dependency type="executable" location="extensions">simpletransform.py</dependency>
 	<dependency type="executable" location="extensions">cubicsuperpath.py</dependency>
 	<effect>
