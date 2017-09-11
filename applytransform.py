@@ -71,7 +71,8 @@ class ApplyTransform(inkex.Effect):
             applyTransformToPath(transf, p)
             node.set('d', cubicsuperpath.formatPath(p))
 
-        elif node.tag == inkex.addNS('polygon', 'svg'):
+        elif node.tag in [inkex.addNS('polygon', 'svg'),
+                          inkex.addNS('polyline', 'svg')]:
             points = node.get('points')
             points = points.strip().split(' ')
             for k,p in enumerate(points):
@@ -84,7 +85,9 @@ class ApplyTransform(inkex.Effect):
             points = ' '.join(points)
             node.set('points', points)
 
-        elif node.tag == inkex.addNS('rect', 'svg'):
+        elif node.tag in [inkex.addNS('rect', 'svg'),
+                          inkex.addNS('text', 'svg'),
+                          inkex.addNS('image', 'svg')]:
             node.set('transform', formatTransform(transf))
 
         for child in node.getchildren():
