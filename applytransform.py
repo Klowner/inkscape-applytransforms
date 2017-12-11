@@ -87,7 +87,8 @@ class ApplyTransform(inkex.Effect):
 
         elif node.tag in [inkex.addNS('rect', 'svg'),
                           inkex.addNS('text', 'svg'),
-                          inkex.addNS('image', 'svg')]:
+                          inkex.addNS('image', 'svg'),
+                          inkex.addNS('use', 'svg')]:
             node.set('transform', formatTransform(transf))
 
         for child in node.getchildren():
