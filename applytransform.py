@@ -76,12 +76,13 @@ class ApplyTransform(inkex.Effect):
             points = node.get('points')
             points = points.strip().split(' ')
             for k,p in enumerate(points):
-                p = p.split(',')
-                p = [float(p[0]),float(p[1])]
-                applyTransformToPoint(transf, p)
-                p = [str(p[0]),str(p[1])]
-                p = ','.join(p)
-                points[k] = p
+                if ',' in p:
+                    p = p.split(',')
+                    p = [float(p[0]),float(p[1])]
+                    applyTransformToPoint(transf, p)
+                    p = [str(p[0]),str(p[1])]
+                    p = ','.join(p)
+                    points[k] = p
             points = ' '.join(points)
             node.set('points', points)
 
