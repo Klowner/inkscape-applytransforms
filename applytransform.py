@@ -51,13 +51,16 @@ class ApplyTransform(inkex.Effect):
             update = False
 
             if 'stroke-width' in style:
-                stroke_width = self.unittouu(style.get('stroke-width').strip())
-                # pixelsnap ext assumes scaling is similar in x and y
-                # and uses the x scale...
-                # let's try to be a bit smarter
-                stroke_width *= math.sqrt(transf[0][0]**2 + transf[1][1]**2)
-                style['stroke-width'] = str(stroke_width)
-                update = True
+                try:
+                    stroke_width = self.unittouu(style.get('stroke-width').strip())
+                    # pixelsnap ext assumes scaling is similar in x and y
+                    # and uses the x scale...
+                    # let's try to be a bit smarter
+                    stroke_width *= math.sqrt(transf[0][0]**2 + transf[1][1]**2)
+                    style['stroke-width'] = str(stroke_width)
+                    update = True
+                except AttributeError:
+                    pass
 
             if update:
                 style = simplestyle.formatStyle(style)
