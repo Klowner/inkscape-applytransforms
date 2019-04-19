@@ -8,7 +8,11 @@ and clones are affected in strange ways due to clone transforms behave.
 
 ## Installation
 
-Download `applytransform.inx` and `applytransform.py`, then copy them to the Inkscape installation folder subdirectory `share\extensions`. On Windows this may be `C:\Program Files\Inkscape\share\extensions`. If the downloaded files have `.txt` suffixes added by GitHub, be sure to remove them. Restart Inkscape if it's running.
+Download `applytransform.inx` and `applytransform.py`, then copy them to the Inkscape installation folder subdirectory `share\extensions`. 
+  * On Windows this may be `C:\Program Files\Inkscape\share\extensions` ;
+  * On Ubuntu 18.04, this may be `/usr/share/inkscape/extensions/`.
+ 
+If the downloaded files have `.txt` suffixes added by GitHub, be sure to remove them. Restart Inkscape if it's running.
 
 ### Arch Linux
 This package is also available via the [AUR](https://aur.archlinux.org/packages/inkscape-applytransforms-git/).
