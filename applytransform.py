@@ -39,12 +39,7 @@ class ApplyTransform(inkex.Effect):
 
         return node
 
-    def recursiveFuseTransform(self, node, transf=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]):
-        transf = composeTransform(transf, parseTransform(node.get("transform", None)))
-
-        if 'transform' in node.attrib:
-            del node.attrib['transform']
-
+    def scaleStrokeWidth(self, node, transf):
         if 'style' in node.attrib:
             style = node.attrib.get('style')
             style = simplestyle.parseStyle(style)
@@ -66,6 +61,14 @@ class ApplyTransform(inkex.Effect):
             if update:
                 style = simplestyle.formatStyle(style)
                 node.attrib['style'] = style
+
+    def recursiveFuseTransform(self, node, transf=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]):
+        transf = composeTransform(transf, parseTransform(node.get("transform", None)))
+
+        if 'transform' in node.attrib:
+            del node.attrib['transform']
+
+        self.scaleStrokeWidth(node, transf)
 
         node = ApplyTransform.objectToPath(node)
 
