@@ -68,8 +68,6 @@ class ApplyTransform(inkex.Effect):
         if 'transform' in node.attrib:
             del node.attrib['transform']
 
-        self.scaleStrokeWidth(node, transf)
-
         node = ApplyTransform.objectToPath(node)
 
         if 'd' in node.attrib:
@@ -77,6 +75,8 @@ class ApplyTransform(inkex.Effect):
             p = cubicsuperpath.parsePath(d)
             applyTransformToPath(transf, p)
             node.set('d', cubicsuperpath.formatPath(p))
+
+            self.scaleStrokeWidth(node, transf)
 
         elif node.tag in [inkex.addNS('polygon', 'svg'),
                           inkex.addNS('polyline', 'svg')]:
@@ -93,12 +93,18 @@ class ApplyTransform(inkex.Effect):
             points = ' '.join(points)
             node.set('points', points)
 
+            self.scaleStrokeWidth(node, transf)
+
         elif node.tag in [inkex.addNS('rect', 'svg'),
                           inkex.addNS('text', 'svg'),
                           inkex.addNS('image', 'svg'),
                           inkex.addNS('use', 'svg'),
                           inkex.addNS('circle', 'svg')]:
             node.set('transform', formatTransform(transf))
+
+        else:
+            # e.g. <g style="...">
+            self.scaleStrokeWidth(node, transf)
 
         for child in node.getchildren():
             self.recursiveFuseTransform(child, transf)
