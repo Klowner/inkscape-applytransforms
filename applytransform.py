@@ -39,12 +39,7 @@ class ApplyTransform(inkex.Effect):
 
         return node
 
-    def recursiveFuseTransform(self, node, transf=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]):
-        transf = composeTransform(transf, parseTransform(node.get("transform", None)))
-
-        if 'transform' in node.attrib:
-            del node.attrib['transform']
-
+    def scaleStrokeWidth(self, node, transf):
         if 'style' in node.attrib:
             style = node.attrib.get('style')
             style = simplestyle.parseStyle(style)
@@ -56,7 +51,8 @@ class ApplyTransform(inkex.Effect):
                     # pixelsnap ext assumes scaling is similar in x and y
                     # and uses the x scale...
                     # let's try to be a bit smarter
-                    stroke_width *= math.sqrt(transf[0][0]**2 + transf[1][1]**2)
+                    # the least terrible option is using the geometric mean
+                    stroke_width *= math.sqrt(transf[0][0] * transf[1][1])
                     style['stroke-width'] = str(stroke_width)
                     update = True
                 except AttributeError:
@@ -66,6 +62,12 @@ class ApplyTransform(inkex.Effect):
                 style = simplestyle.formatStyle(style)
                 node.attrib['style'] = style
 
+    def recursiveFuseTransform(self, node, transf=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]):
+        transf = composeTransform(transf, parseTransform(node.get("transform", None)))
+
+        if 'transform' in node.attrib:
+            del node.attrib['transform']
+
         node = ApplyTransform.objectToPath(node)
 
         if 'd' in node.attrib:
@@ -73,6 +75,8 @@ class ApplyTransform(inkex.Effect):
             p = cubicsuperpath.parsePath(d)
             applyTransformToPath(transf, p)
             node.set('d', cubicsuperpath.formatPath(p))
+
+            self.scaleStrokeWidth(node, transf)
 
         elif node.tag in [inkex.addNS('polygon', 'svg'),
                           inkex.addNS('polyline', 'svg')]:
@@ -89,12 +93,18 @@ class ApplyTransform(inkex.Effect):
             points = ' '.join(points)
             node.set('points', points)
 
+            self.scaleStrokeWidth(node, transf)
+
         elif node.tag in [inkex.addNS('rect', 'svg'),
                           inkex.addNS('text', 'svg'),
                           inkex.addNS('image', 'svg'),
                           inkex.addNS('use', 'svg'),
                           inkex.addNS('circle', 'svg')]:
             node.set('transform', formatTransform(transf))
+
+        else:
+            # e.g. <g style="...">
+            self.scaleStrokeWidth(node, transf)
 
         for child in node.getchildren():
             self.recursiveFuseTransform(child, transf)
