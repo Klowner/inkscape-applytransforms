@@ -52,7 +52,7 @@ class ApplyTransform(inkex.Effect):
                     # and uses the x scale...
                     # let's try to be a bit smarter
                     # the least terrible option is using the geometric mean
-                    stroke_width *= math.sqrt(transf[0][0] * transf[1][1])
+                    stroke_width *= math.sqrt(abs(transf[0][0] * transf[1][1]))
                     style['stroke-width'] = str(stroke_width)
                     update = True
                 except AttributeError:
