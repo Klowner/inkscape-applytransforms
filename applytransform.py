@@ -7,24 +7,23 @@
 import sys
 sys.path.append('/usr/share/inkscape/extensions')
 
-import inkex
-import cubicsuperpath
-import math
-import simplestyle
-from simpletransform import composeTransform, fuseTransform, parseTransform, applyTransformToPath, applyTransformToPoint, formatTransform
+import inkex, math
+from inkex.paths import CubicSuperPath, Path
+from inkex.transforms import Transform
+from inkex.styles import Style
 
 class ApplyTransform(inkex.Effect):
     def __init__(self):
         inkex.Effect.__init__(self)
 
     def effect(self):
-        self.getselected()
+        self.svg.get_selected()
 
-        if self.selected:
-            for id, shape in self.selected.items():
-                self.recursiveFuseTransform(shape, parseTransform(None))
+        if self.svg.selected:
+            for id, shape in self.svg.selected.items():
+                self.recursiveFuseTransform(shape)
         else:
-            self.recursiveFuseTransform(self.document.getroot(), parseTransform(None))
+            self.recursiveFuseTransform(self.document.getroot())
 
     @staticmethod
     def objectToPath(node):
@@ -42,28 +41,23 @@ class ApplyTransform(inkex.Effect):
     def scaleStrokeWidth(self, node, transf):
         if 'style' in node.attrib:
             style = node.attrib.get('style')
-            style = simplestyle.parseStyle(style)
+            style = dict(Style.parse_str(style))
             update = False
 
             if 'stroke-width' in style:
                 try:
-                    stroke_width = self.unittouu(style.get('stroke-width').strip())
-                    # pixelsnap ext assumes scaling is similar in x and y
-                    # and uses the x scale...
-                    # let's try to be a bit smarter
-                    # the least terrible option is using the geometric mean
-                    stroke_width *= math.sqrt(abs(transf[0][0] * transf[1][1]))
+                    stroke_width = float(style.get('stroke-width').strip())
+                    stroke_width *= math.sqrt(abs(transf.a * transf.d))
                     style['stroke-width'] = str(stroke_width)
                     update = True
                 except AttributeError:
                     pass
 
             if update:
-                style = simplestyle.formatStyle(style)
-                node.attrib['style'] = style
+                node.attrib['style'] = Style(style).to_str()
 
     def recursiveFuseTransform(self, node, transf=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]):
-        transf = composeTransform(transf, parseTransform(node.get("transform", None)))
+        transf = Transform(transf) * Transform(node.get("transform", None))
 
         if 'transform' in node.attrib:
             del node.attrib['transform']
@@ -72,9 +66,9 @@ class ApplyTransform(inkex.Effect):
 
         if 'd' in node.attrib:
             d = node.get('d')
-            p = cubicsuperpath.parsePath(d)
-            applyTransformToPath(transf, p)
-            node.set('d', cubicsuperpath.formatPath(p))
+            p = CubicSuperPath(d)
+            p = Path(p).to_absolute().transform(transf, True)
+            node.set('d', Path(CubicSuperPath(p).to_path()))
 
             self.scaleStrokeWidth(node, transf)
 
@@ -100,7 +94,8 @@ class ApplyTransform(inkex.Effect):
                           inkex.addNS('image', 'svg'),
                           inkex.addNS('use', 'svg'),
                           inkex.addNS('circle', 'svg')]:
-            node.set('transform', formatTransform(transf))
+            # node.set('transform', str(Transform(transf)))
+            inkex.utils.errormsg("Shape %s not yet supported" % node.tag)
 
         else:
             # e.g. <g style="...">
@@ -112,4 +107,4 @@ class ApplyTransform(inkex.Effect):
 
 if __name__ == '__main__':
     e = ApplyTransform()
-    e.affect()
+    e.run()
