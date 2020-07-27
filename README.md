@@ -4,6 +4,8 @@ An Inkscape extension which recursively applies transformations to shapes.
 Note that performing this operation on certain shapes (stars, lpes, ...) will convert them to paths,
 and clones are affected in strange ways due to clone transforms behave.
 
+**update 2020-7-27** - updated to work with Inkscape 1.0+. Use legacy branch `inkscape-pre1.0-compat` for prior version of Inkscape.
+
 **update 2016-1-5** - now only affects selected shapes when there is an active selection.
 
 ## Installation
