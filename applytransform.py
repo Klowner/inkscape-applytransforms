@@ -4,9 +4,6 @@
 # Copyright Mark "Klowner" Riedesel
 # https://github.com/Klowner/inkscape-applytransforms
 #
-import sys
-sys.path.append('/usr/share/inkscape/extensions')
-
 import inkex
 import math
 from inkex.paths import CubicSuperPath, Path
@@ -21,8 +18,6 @@ class ApplyTransform(inkex.Effect):
         inkex.Effect.__init__(self)
 
     def effect(self):
-        self.svg.get_selected()
-
         if self.svg.selected:
             for id, shape in self.svg.selected.items():
                 self.recursiveFuseTransform(shape)
@@ -160,7 +155,5 @@ class ApplyTransform(inkex.Effect):
         for child in node.getchildren():
             self.recursiveFuseTransform(child, transf)
 
-
 if __name__ == '__main__':
-    e = ApplyTransform()
-    e.run()
+    ApplyTransform().run()
