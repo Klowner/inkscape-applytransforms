@@ -126,7 +126,7 @@ class ApplyTransform(inkex.Effect):
             if not isequal(edgex, edgey) and (
                 node.TAG == "circle"
                 or not isequal(newxy2[0], newxy3[0])
-                or not isequal(newxy1[1] != newxy2[1])
+                or not isequal(newxy1[1], newxy2[1])
             ):
                 inkex.utils.errormsg(
                     "Warning: Shape %s (%s) is approximate only, try Object to path first for better results"
