@@ -27,3 +27,7 @@ pacaur -S inkscape-applytransforms-git
 Activate the extension from the main menu:
 
 > Extensions | Modify Path | Apply Transform
+
+or use it from the command line. The id of the extension is automatically available as a verb:
+
+> `inkscape -g --verb com.klowner.filter.applytransform test.svg`
