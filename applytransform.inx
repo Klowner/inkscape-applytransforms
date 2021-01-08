@@ -11,6 +11,6 @@
 		</effects-menu>
 	</effect>
 	<script>
-		<command reldir="extensions" interpreter="python">applytransform.py</command>
+		<command location="inx" interpreter="python">applytransform.py</command>
 	</script>
 </inkscape-extension>
