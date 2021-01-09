@@ -3,7 +3,7 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-  viewBox="-40 0 500 500">
+  viewBox="-450 -150 1000 350">
   
   <g
     fill="grey"
@@ -99,5 +99,52 @@
   points="0,40 40,40 40,80 80,80 80,120 120,120 120,160"
   style="fill:white;stroke:red;stroke-width:4"
   transform="scale(1 0.5)"  />
+
+  <!-- issue inkscape-applytransforms/issues/19 -->
+  <g
+    id="Sketch"
+    transform="scale(1,-1)">
+
+    <path
+      id="Sketch_w0000"
+      d="M 55.4688875547 -1.85809403416 A 55.5 55.5 0 0 1 26.1253 48.9665L 4.25249202985 62.3520562162 A 8.14678 8.14678 0 0 1 -4.25249 62.3521L -26.1252871412 48.9665127591 A 55.5 55.5 0 0 1 -55.4689 -1.85809L -56.1247106763 -27.4932619809 A 8.14678 8.14678 0 0 1 -51.8722 -34.8588L -29.3436004136 -47.108418725 A 55.5 55.5 0 0 1 29.3436 -47.1084L 51.8722186465 -34.8587942353 A 8.14678 8.14678 0 0 1 56.1247 -27.4933L 55.4688875547 -1.85809403416 "
+      stroke="#000000"
+      stroke-width="0.35 px"
+      style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none;fill-rule:evenodd"/>
+
+    <circle
+      cx="4.39931227243e-24"
+      cy="1.67346641155e-24"
+      r="13.1445"
+      stroke="#000000"
+      stroke-width="0.35 px"
+      style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
+
+    <circle
+      cx="-47.9806"
+      cy="-27.7016123259"
+      r="3.3782"
+      stroke="#000000"
+      stroke-width="0.35 px"
+      style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
+
+    <circle
+      cx="2.61025905349e-29"
+      cy="55.4032246518"
+      r="3.3782"
+      stroke="#000000"
+      stroke-width="0.35 px"
+      style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
+
+    <circle
+      cx="47.9806"
+      cy="-27.7016123259"
+      r="3.3782"
+      stroke="#000000"
+      stroke-width="0.35 px"
+      style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
+
+    <title>Sketch</title>
+    </g>
 
 </svg>

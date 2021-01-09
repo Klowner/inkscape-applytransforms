@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="-40 0 500 500">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="-450 -150 1000 350">
   
   <g fill="grey">
 
@@ -38,5 +38,21 @@
   <polygon points="-200.0,3.0 -250.0,57.0 -160.0,63.0" style="fill:lime;stroke:purple;stroke-width:0.8215838362577491"/>
 
   <polyline points="0.0,20.0 40.0,20.0 40.0,40.0 80.0,40.0 80.0,60.0 120.0,60.0 120.0,80.0" style="fill:white;stroke:red;stroke-width:2.8284271247461903"/>
+
+  <!-- issue inkscape-applytransforms/issues/19 -->
+  <g id="Sketch">
+
+    <path id="Sketch_w0000" d="M 55.4689 1.85809 C 56.1774 -19.2923 44.7963 -39.0049 26.1253 -48.9665 L 4.25249 -62.3521 C 1.64248 -63.9493 -1.64246 -63.9493 -4.25249 -62.3521 L -26.1253 -48.9665 C -44.7963 -39.0049 -56.1774 -19.2923 -55.4689 1.85809 L -56.1247 27.4933 C -56.203 30.5522 -54.5605 33.3971 -51.8722 34.8588 L -29.3436 47.1084 C -11.3811 58.2972 11.3811 58.2972 29.3436 47.1084 L 51.8722 34.8588 C 54.5605 33.3971 56.2029 30.5523 56.1247 27.4933 Z" stroke="#000000" stroke-width="0.35 px" style="fill:none;fill-rule:evenodd;stroke-dasharray:none;stroke-miterlimit:4;stroke-width:0.35"/>
+
+    <circle cx="0.0" cy="0.0" r="13.1445" stroke="#000000" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
+
+    <circle cx="-47.9806" cy="27.7016123259" r="3.3781999999999996" stroke="#000000" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
+
+    <circle cx="0.0" cy="-55.4032246518" r="3.3782" stroke="#000000" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
+
+    <circle cx="47.9806" cy="27.7016123259" r="3.3781999999999996" stroke="#000000" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
+
+    <title>Sketch</title>
+    </g>
 
 </svg>
