@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+  viewBox="-40 0 500 500">
+  
+  <g
+    fill="grey"
+    transform="rotate(-10 50 100)
+                translate(-36 45.5)
+                skewX(40)
+                scale(1 0.5)">
+
+    <path
+      id="heart"
+      d="M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z" />
+      
+  </g>
+
+  <use
+    xlink:href="#heart"
+    fill="none"
+    stroke="red"
+    stroke-width="2" />
+
+  <g
+    id="layer1">
+
+    <g
+      id="g29"
+      transform="matrix(1.3021641,0.3457822,-0.22056492,0.8306145,4.9095382,-20.058683)">
+
+      <g
+        id="g18"
+        transform="matrix(0.54315553,-0.00111216,0.0108631,1.1121619,19.693503,-9.6540117)">
+
+        <path
+          id="rect10"
+          style="fill:#0000ff;fill-rule:evenodd;stroke-width:0.189051"
+          d="M 92.641788,86.498198 H 172.64179 V 166.4982 H 92.641788 Z" />
+
+        <path
+          id="path12"
+          style="fill:#ff0000;fill-rule:evenodd;stroke-width:0.297262"
+          d="m 242.79893,91.25326 a 50.000002,49.999998 0 0 1 -50,50.00001 50.000002,49.999998 0 0 1 -50,-50.00001 50.000002,49.999998 0 0 1 50,-49.999993 50.000002,49.999998 0 0 1 50,49.999993 z" />
+
+      </g>
+
+      <path
+        id="path20"
+        style="fill:#ffff00;fill-rule:evenodd;stroke-width:0.264583"
+        inkscape:transform-center-x="-1.5054042"
+        inkscape:transform-center-y="-2.2150546"
+        d="m 186.0012,149.02302 -20.94187,-14.66469 -23.95268,8.93778 7.47555,-24.44854 -15.90211,-20.018423 25.56201,-0.445341 14.12463,-21.309845 8.32264,24.173299 24.63162,6.84822 -20.41834,15.38526 z" />
+    </g>
+
+  </g>
+
+
+  <!-- uniform scale -->
+  <circle
+    cx="0"
+    cy="0"
+    r="30"
+    style="fill:red;stroke-width:1.5"
+    transform="scale(4)" />
+
+  <ellipse
+    cx="240"
+    cy="100"
+    rx="220"
+    ry="30"
+    style="fill:purple;stroke-width:1.5"
+    transform="scale(1 0.5)" />
+
+  <ellipse
+    cx="220"
+    cy="70"
+    rx="190"
+    ry="20"
+    style="fill:lime;stroke-width:1.5"
+    transform="scale(-1 0.3)" />
+
+  <ellipse
+    cx="210"
+    cy="45"
+    rx="170"
+    ry="15"
+    style="fill:yellow;stroke-width:1.5"
+    transform="translate(-36 45.5)" />
+
+  <polygon
+    points="200,10 250,190 160,210"
+    style="fill:lime;stroke:purple;stroke-width:1.5"
+    transform="scale(-1 0.3)" />
+
+  <polyline
+  points="0,40 40,40 40,80 80,80 80,120 120,120 120,160"
+  style="fill:white;stroke:red;stroke-width:4"
+  transform="scale(1 0.5)"  />
+
+</svg>
