@@ -13,9 +13,9 @@ from inkex.styles import Style
 NULL_TRANSFORM = Transform([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]])
 
 
-class ApplyTransform(inkex.Effect):
+class ApplyTransform(inkex.EffectExtension):
     def __init__(self):
-        inkex.Effect.__init__(self)
+        super(ApplyTransform, self).__init__()
 
     def effect(self):
         if self.svg.selected:
