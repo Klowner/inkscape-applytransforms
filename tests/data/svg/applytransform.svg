@@ -58,7 +58,6 @@
   </g>
 
 
-  <!-- uniform scale -->
   <circle
     cx="0"
     cy="0"
@@ -66,6 +65,9 @@
     style="fill:red;stroke-width:1.5"
     transform="scale(4)" />
 
+  <!-- issue inkscape-applytransforms/issues/15 - apply to an ellipse in a group-->
+  <g
+    id="issue-15">
   <ellipse
     cx="240"
     cy="100"
@@ -89,6 +91,8 @@
     ry="15"
     style="fill:yellow;stroke-width:1.5"
     transform="translate(-36 45.5)" />
+
+  </g>
 
   <polygon
     points="200,10 250,190 160,210"

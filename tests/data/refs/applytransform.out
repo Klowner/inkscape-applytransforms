@@ -26,14 +26,17 @@
   </g>
 
 
-  <!-- uniform scale -->
   <circle cx="0.0" cy="0.0" r="120.0" style="fill:red;stroke-width:1.5"/>
 
+  <!-- issue inkscape-applytransforms/issues/15 - apply to an ellipse in a group-->
+  <g id="issue-15">
   <ellipse cx="240.0" cy="50.0" rx="220.0" ry="15.0" style="fill:purple;stroke-width:1.5"/>
 
   <ellipse cx="-220.0" cy="21.0" rx="190.0" ry="6.0" style="fill:lime;stroke-width:1.5"/>
 
   <ellipse cx="174.0" cy="90.5" rx="170.0" ry="15.0" style="fill:yellow;stroke-width:1.5"/>
+
+  </g>
 
   <polygon points="-200.0,3.0 -250.0,57.0 -160.0,63.0" style="fill:lime;stroke:purple;stroke-width:0.8215838362577491"/>
 
