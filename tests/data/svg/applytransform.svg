@@ -68,29 +68,29 @@
   <!-- issue inkscape-applytransforms/issues/15 - apply to an ellipse in a group-->
   <g
     id="issue-15">
-  <ellipse
-    cx="240"
-    cy="100"
-    rx="220"
-    ry="30"
-    style="fill:purple;stroke-width:1.5"
-    transform="scale(1 0.5)" />
+    <ellipse
+      cx="240"
+      cy="100"
+      rx="220"
+      ry="30"
+      style="fill:purple;stroke-width:1.5"
+      transform="scale(1 0.5)" />
 
-  <ellipse
-    cx="220"
-    cy="70"
-    rx="190"
-    ry="20"
-    style="fill:lime;stroke-width:1.5"
-    transform="scale(-1 0.3)" />
+    <ellipse
+      cx="220"
+      cy="70"
+      rx="190"
+      ry="20"
+      style="fill:lime;stroke-width:1.5"
+      transform="scale(-1 0.3)" />
 
-  <ellipse
-    cx="210"
-    cy="45"
-    rx="170"
-    ry="15"
-    style="fill:yellow;stroke-width:1.5"
-    transform="translate(-36 45.5)" />
+    <ellipse
+      cx="210"
+      cy="45"
+      rx="170"
+      ry="15"
+      style="fill:yellow;stroke-width:1.5"
+      transform="translate(-36 45.5)" />
 
   </g>
 
@@ -104,9 +104,9 @@
   style="fill:white;stroke:red;stroke-width:4"
   transform="scale(1 0.5)"  />
 
-  <!-- issue inkscape-applytransforms/issues/19 -->
+  <!-- issue inkscape-applytransforms/issues/19 - `circle` elements don't get transformed -->
   <g
-    id="Sketch"
+    id="issue-19"
     transform="scale(1,-1)">
 
     <path
@@ -151,4 +151,29 @@
     <title>Sketch</title>
     </g>
 
+
+  <!-- issue inkscape-applytransforms/issues/10 - remove all scale transformations  -->
+  <rect
+    id="issue-10"
+    d="  m -369.08313,-196.79971 h 76.69942 v 52.65435 h -76.69942 z"
+    style="fill:#0000ff"
+    transform="rotate(43.228035)
+                scale(1,-1)" />
+
+  <!-- test for rect -->              
+  <!--
+  <rect
+    id="issue-10"
+    y="260.50827"
+    x="-175.45432"
+    height="52.654354"
+    width="76.699425"
+    style="fill:#0000ff"
+    transform="rotate(43.228035)
+                scale(1,-1)" /> -->
+
+<!--
+  text
+  image
+  use -->
 </svg>

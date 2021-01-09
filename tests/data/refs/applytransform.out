@@ -30,11 +30,11 @@
 
   <!-- issue inkscape-applytransforms/issues/15 - apply to an ellipse in a group-->
   <g id="issue-15">
-  <ellipse cx="240.0" cy="50.0" rx="220.0" ry="15.0" style="fill:purple;stroke-width:1.5"/>
+    <ellipse cx="240.0" cy="50.0" rx="220.0" ry="15.0" style="fill:purple;stroke-width:1.5"/>
 
-  <ellipse cx="-220.0" cy="21.0" rx="190.0" ry="6.0" style="fill:lime;stroke-width:1.5"/>
+    <ellipse cx="-220.0" cy="21.0" rx="190.0" ry="6.0" style="fill:lime;stroke-width:1.5"/>
 
-  <ellipse cx="174.0" cy="90.5" rx="170.0" ry="15.0" style="fill:yellow;stroke-width:1.5"/>
+    <ellipse cx="174.0" cy="90.5" rx="170.0" ry="15.0" style="fill:yellow;stroke-width:1.5"/>
 
   </g>
 
@@ -42,8 +42,8 @@
 
   <polyline points="0.0,20.0 40.0,20.0 40.0,40.0 80.0,40.0 80.0,60.0 120.0,60.0 120.0,80.0" style="fill:white;stroke:red;stroke-width:2.8284271247461903"/>
 
-  <!-- issue inkscape-applytransforms/issues/19 -->
-  <g id="Sketch">
+  <!-- issue inkscape-applytransforms/issues/19 - `circle` elements don't get transformed -->
+  <g id="issue-19">
 
     <path id="Sketch_w0000" d="M 55.4689 1.85809 C 56.1774 -19.2923 44.7963 -39.0049 26.1253 -48.9665 L 4.25249 -62.3521 C 1.64248 -63.9493 -1.64246 -63.9493 -4.25249 -62.3521 L -26.1253 -48.9665 C -44.7963 -39.0049 -56.1774 -19.2923 -55.4689 1.85809 L -56.1247 27.4933 C -56.203 30.5522 -54.5605 33.3971 -51.8722 34.8588 L -29.3436 47.1084 C -11.3811 58.2972 11.3811 58.2972 29.3436 47.1084 L 51.8722 34.8588 C 54.5605 33.3971 56.2029 30.5523 56.1247 27.4933 Z" stroke="#000000" stroke-width="0.35 px" style="fill:none;fill-rule:evenodd;stroke-dasharray:none;stroke-miterlimit:4;stroke-width:0.35"/>
 
@@ -58,4 +58,22 @@
     <title>Sketch</title>
     </g>
 
+
+  <!-- issue inkscape-applytransforms/issues/10 - remove all scale transformations  -->
+  <rect id="issue-10" d="M -403.715 -109.392 L -347.83 -56.8598 L -311.766 -95.2256 L -367.652 -147.757 Z" style="fill:#0000ff"/>
+<!--   <rect
+    id="issue-10"
+    y="260.50827"
+    x="-175.45432"
+    height="52.654354"
+    width="76.699425"
+    style="fill:#0000ff"
+    transform="rotate(43.228035)
+                scale(1,-1)" /> -->
+
+<!--
+  rect
+  text
+  image
+  use -->
 </svg>
