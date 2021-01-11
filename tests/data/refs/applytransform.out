@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="-450 -150 1000 350">
+  
+  <g fill="grey">
+
+    <path id="heart" d="M -19.3092 72.1117 C -22.8819 69.1139 -22.4291 65.6819 -18.1214 63.1084 C -13.8137 60.535 -6.30558 59.2111 1.57477 59.6355 C 9.45511 60.0598 16.5104 62.168 20.0831 65.1658 C 16.5104 62.168 16.9632 58.7359 21.2709 56.1625 C 25.5786 53.5891 33.0867 52.2652 40.9671 52.6895 C 48.8474 53.1139 55.9028 55.2221 59.4754 58.2199 C 69.4754 66.6109 66.3446 77.3172 50.0831 90.3388 C 13.8216 86.5784 -9.30922 80.5027 -19.3092 72.1117 Z"/>
+      
+  </g>
+
+  <use xlink:href="#heart" fill="none" stroke="red" stroke-width="2"/>
+
+  <g id="layer1">
+
+    <g id="g29">
+
+      <g id="g18">
+
+        <path id="rect10" style="fill:#0000ff;fill-rule:evenodd;stroke-width:0.15314874409701196" d="M 78.2342 76.2759 L 134.836 91.2271 L 116.343 165.43 L 59.7416 150.479 Z"/>
+
+        <path id="path12" style="fill:#ff0000;fill-rule:evenodd;stroke-width:0.24080963320884827" d="M 183.374 108.749 C 180.309 121.049 173.642 131.861 164.84 138.806 C 156.039 145.75 145.823 148.26 136.44 145.781 C 127.058 143.303 119.278 136.04 114.811 125.59 C 110.344 115.141 109.557 102.36 112.622 90.0603 C 119.006 64.4472 140.019 47.8673 159.556 53.0281 C 179.094 58.1889 189.758 83.1361 183.374 108.749 Z"/>
+
+      </g>
+
+      <path id="path20" style="fill:#ffff00;fill-rule:evenodd;stroke-width:0.2751655095098435" d="M 214.244 168.038 L 190.208 148.616 L 157.047 147.757 L 172.174 130.035 L 155.882 107.909 L 189.266 116.378 L 212.359 103.561 L 217.864 126.518 L 248.428 140.723 L 218.447 146.442 Z"/>
+    </g>
+
+  </g>
+
+
+  <!-- uniform scale -->
+  <circle cx="0.0" cy="0.0" r="120.0" style="fill:red;stroke-width:1.5"/>
+
+  <ellipse cx="240.0" cy="50.0" rx="220.0" ry="15.0" style="fill:purple;stroke-width:1.5"/>
+
+  <ellipse cx="-220.0" cy="21.0" rx="190.0" ry="6.0" style="fill:lime;stroke-width:1.5"/>
+
+  <ellipse cx="174.0" cy="90.5" rx="170.0" ry="15.0" style="fill:yellow;stroke-width:1.5"/>
+
+  <polygon points="-200.0,3.0 -250.0,57.0 -160.0,63.0" style="fill:lime;stroke:purple;stroke-width:0.8215838362577491"/>
+
+  <polyline points="0.0,20.0 40.0,20.0 40.0,40.0 80.0,40.0 80.0,60.0 120.0,60.0 120.0,80.0" style="fill:white;stroke:red;stroke-width:2.8284271247461903"/>
+
+  <!-- issue inkscape-applytransforms/issues/19 -->
+  <g id="Sketch">
+
+    <path id="Sketch_w0000" d="M 55.4689 1.85809 C 56.1774 -19.2923 44.7963 -39.0049 26.1253 -48.9665 L 4.25249 -62.3521 C 1.64248 -63.9493 -1.64246 -63.9493 -4.25249 -62.3521 L -26.1253 -48.9665 C -44.7963 -39.0049 -56.1774 -19.2923 -55.4689 1.85809 L -56.1247 27.4933 C -56.203 30.5522 -54.5605 33.3971 -51.8722 34.8588 L -29.3436 47.1084 C -11.3811 58.2972 11.3811 58.2972 29.3436 47.1084 L 51.8722 34.8588 C 54.5605 33.3971 56.2029 30.5523 56.1247 27.4933 Z" stroke="#000000" stroke-width="0.35 px" style="fill:none;fill-rule:evenodd;stroke-dasharray:none;stroke-miterlimit:4;stroke-width:0.35"/>
+
+    <circle cx="0.0" cy="0.0" r="13.1445" stroke="#000000" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
+
+    <circle cx="-47.9806" cy="27.7016123259" r="3.3781999999999996" stroke="#000000" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
+
+    <circle cx="0.0" cy="-55.4032246518" r="3.3782" stroke="#000000" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
+
+    <circle cx="47.9806" cy="27.7016123259" r="3.3781999999999996" stroke="#000000" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
+
+    <title>Sketch</title>
+    </g>
+
+</svg>
