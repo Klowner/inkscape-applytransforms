@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
 	<name>Apply Transform</name>
-	<id>com.klowner.filter.applytransform</id>
+	<id>com.klowner.filter.apply_transform</id>
 	<effect>
 		<object-type>all</object-type>
 		<effects-menu>
