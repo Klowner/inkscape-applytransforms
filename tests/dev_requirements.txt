@@ -1,0 +1,5 @@
+# Dev Requirements
+pytest
+pytest-cov
+inkex
+autopep8
