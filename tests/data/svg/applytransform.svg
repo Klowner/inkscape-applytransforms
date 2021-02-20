@@ -3,177 +3,290 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-  viewBox="-450 -150 1000 350">
-  
-  <g
-    fill="grey"
-    transform="rotate(-10 50 100)
+  viewBox="0 0 1500 1500">
+
+  <style>
+    text.desc {
+      font-size: 24px;
+    }
+  </style>
+
+  <!-- test for path -->
+  <text class="desc" x="420" y="150">Single Path</text>
+  <path id="heart" d="M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z" transform="translate(500,0)" style="fill:#db0153" />
+
+  <!-- test for path in group with use -->
+  <text class="desc" x="420" y="400">Path in Group with use</text>
+  <g id="test-path-group" transform="translate(500, 250)">
+    <g id="tpg_1" fill="grey" transform="rotate(-10 50 100)
                 translate(-36 45.5)
                 skewX(40)
                 scale(1 0.5)">
-
-    <path
-      id="heart"
-      d="M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z" />
-      
+      <path id="heart2" d="M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z" />
+    </g>
+    <!-- Shape use  not yet supported -->
+    <!-- <use id="heart2_1" xlink:href="#heart2" style="fill:none;stroke:red;stroke-width:2" /> -->
   </g>
 
-  <use
-    xlink:href="#heart"
-    fill="none"
-    stroke="red"
-    stroke-width="2" />
-
-  <g
-    id="layer1">
-
-    <g
-      id="g29"
-      transform="matrix(1.3021641,0.3457822,-0.22056492,0.8306145,4.9095382,-20.058683)">
-
-      <g
-        id="g18"
-        transform="matrix(0.54315553,-0.00111216,0.0108631,1.1121619,19.693503,-9.6540117)">
-
+  <!-- test for mulitple sub-groups and matrices -->
+  <text class="desc" x="720" y="200">Path in mulitple sub-groups and matrices</text>
+  <g id="mulitple-sub-groups" transform="translate(750, 0)">
+    <g id="msg-1" transform="matrix(1,0,0,1,4,-20)">
+      <!-- scale(0.5, 0.5) -->
+      <g id="msg-2" transform="matrix(0.5,0,0,0.5,0,0)">
+        <!-- skewX(45°) -->
         <path
-          id="rect10"
-          style="fill:#0000ff;fill-rule:evenodd;stroke-width:0.189051"
-          d="M 92.641788,86.498198 H 172.64179 V 166.4982 H 92.641788 Z" />
-
+          id="msg-rectangle"
+          style="fill:red;stroke-width:2;stroke:#5f0ce8"
+          d="M 92.641788,86.498198 H 172.64179 V 166.4982 H 92.641788 Z"
+          transform="matrix(1,0,1,1,0,0)" />
+        <!-- skewY(45°) -->
         <path
-          id="path12"
-          style="fill:#ff0000;fill-rule:evenodd;stroke-width:0.297262"
-          d="m 242.79893,91.25326 a 50.000002,49.999998 0 0 1 -50,50.00001 50.000002,49.999998 0 0 1 -50,-50.00001 50.000002,49.999998 0 0 1 50,-49.999993 50.000002,49.999998 0 0 1 50,49.999993 z" />
-
+          id="msg-circle"
+          style="fill:blue;stroke-width:2;stroke:#5f0ce8"
+          d="m 242,91 a 50,50 0 0 1 -50,50 50,50 0 0 1 -50,-50 50,50 0 0 1 50,-50 50,50 0 0 1 50,50 z"
+          transform="matrix(1,1,0,1,0,0)" />
       </g>
-
       <path
-        id="path20"
-        style="fill:#ffff00;fill-rule:evenodd;stroke-width:0.264583"
-        inkscape:transform-center-x="-1.5054042"
-        inkscape:transform-center-y="-2.2150546"
+        id="msg-star"
+        style="fill:yellow;stroke-width:2;stroke:#5f0ce8"
         d="m 186.0012,149.02302 -20.94187,-14.66469 -23.95268,8.93778 7.47555,-24.44854 -15.90211,-20.018423 25.56201,-0.445341 14.12463,-21.309845 8.32264,24.173299 24.63162,6.84822 -20.41834,15.38526 z" />
     </g>
-
   </g>
 
-
+  <!-- test for cicle -->
+  <text class="desc" x="720" y="400">Circle</text>
   <circle
-    cx="0"
-    cy="0"
-    r="30"
+    id="circle"
+    cx="0" cy="0" r="30"
     style="fill:red;stroke-width:1.5"
-    transform="scale(4)" />
+    transform="translate(900, 300) scale(2)" />
 
-  <!-- issue inkscape-applytransforms/issues/15 - apply to an ellipse in a group-->
-  <g
-    id="issue-15">
-    <ellipse
-      cx="240"
-      cy="100"
-      rx="220"
-      ry="30"
-      style="fill:purple;stroke-width:1.5"
-      transform="scale(1 0.5)" />
-
-    <ellipse
-      cx="220"
-      cy="70"
-      rx="190"
-      ry="20"
-      style="fill:lime;stroke-width:1.5"
-      transform="scale(-1 0.3)" />
-
-    <ellipse
-      cx="210"
-      cy="45"
-      rx="170"
-      ry="15"
-      style="fill:yellow;stroke-width:1.5"
-      transform="translate(-36 45.5)" />
-
-  </g>
-
+  <!-- test for polygon -->
+  <text class="desc" x="420" y="620">Polygon</text>
   <polygon
+    id="triangle"
     points="200,10 250,190 160,210"
     style="fill:lime;stroke:purple;stroke-width:1.5"
-    transform="scale(-1 0.3)" />
+    transform="translate(750, 450) scale(-1 0.5)" />
 
+  <!-- test for polyline -->
+  <text class="desc" x="720" y="620">Polyline</text>
   <polyline
-  points="0,40 40,40 40,80 80,80 80,120 120,120 120,160"
-  style="fill:white;stroke:red;stroke-width:4"
-  transform="scale(1 0.5)"  />
+    id="steps"
+    points="0,40 40,40 40,80 80,80 80,120 120,120 120,160"
+    style="fill:#11768c;stroke:red;stroke-width:4"
+    transform="translate(800, 500) scale(1 0.5)"  />
+
+  <!-- test for text -->
+  <text class="desc" x="380" y="1160">Text</text>
+<!-- Shape rect not yet supported
+  <g
+    id="text"
+    transform="translate(380,1060)">
+    <text id="text-1" x="20" y="35" style="font-family:sans-serif;font-style:italic;font-size:13px">My</text>
+    <text id="text-2" x="40" y="35" style="font-family:sans-serif;font-style:bold;font-size:30px">cat</text>
+    <text id="text-3" x="55" y="55" style="font-family:sans-serif;font-style:italic;font-size:13px">is</text>
+    <text id="text-4" x="65" y="55" style="font-family:serif;font-style:italic;font-size:30px" fill="red">Grumpy!</text>
+  </g>
+-->
+
+  <!-- test for text with tspan -->
+  <text class="desc" x="720" y="1160">Text with tspan</text>
+<!-- Shape text not yet supported
+  <text
+    id="text-tspan"
+    style="font-style:oblique;font-size:18px;font-family:'DejaVu Sans'"
+    transform="translate(720,1060)">
+
+    <tspan id="text-tspan-1" x="40" y="20">The quick brown fox</tspan>
+    <tspan id="text-tspan-2" x="80" y="40">jumps over the lazy dog.</tspan>
+  </text>
+-->
+
+  <!-- test for image -->
+
+
+  <!-- test for symbol/use -->
+  <!-- Source: SELFHTML (https://wiki.selfhtml.org/wiki/SVG/Transformationen) -->
+  <text class="desc" x="120" y="620">Tangram</text>
+<!-- Shape use not yet supported
+  <style>
+    .one {
+      fill: #dfac20;
+    }
+    .two {
+      fill: #306f91
+    }
+    .three {
+      fill: #df6c20;
+    }
+    .four {
+      fill: #c32e04;
+    }
+    .five {
+      fill: #5c82d9;
+    }
+    .six {
+      fill: #bfbfbf;
+    }
+    .seven {
+      fill: #8db243;
+    }
+    text.tangram {
+      font-size: 24px;
+    }
+    path.tangram {
+      stroke-width: 1;
+      stroke: white;
+    }
+  </style>
+
+  <defs>
+    <title>Templates Tangram-Figures</title>
+    <symbol id="triangle_big">
+      <desc>the big triangle</desc>
+      <path class="tangram" d="m0,0 132,132 132-132z" />
+    </symbol>
+    <symbol id="triangle_medium">
+      <desc>the medium triangle</desc>
+      <path class="tangram" d="m0,0 h132 v132 z" />
+    </symbol>
+    <symbol id="triangle_small">
+      <desc>the small triangle</desc>
+      <path class="tangram" d="m0,66 l66,66v-132z" />
+    </symbol>
+    <symbol id="square">
+      <desc>the square rectangle</desc>
+      <path class="tangram" d="m0,0 v94 h94 v-94z" />
+    </symbol>
+    <symbol id="para">
+      <desc>the paralellogram</desc>
+      <path class="tangram" d="m66,0 l-67,67 v132 l67-67 z" />
+    </symbol>
+    <symbol id="tangram-square">
+      <text class="tangram" x="10" y="290">square</text>
+      <use id="tangram-square_part1" xlink:href="#triangle_big" class="one" />
+      <use id="tangram-square_part2" xlink:href="#triangle_big" class="two" transform="scale(-1 1) rotate(90)" />
+      <use id="tangram-square_part3" xlink:href="#triangle_medium" class="three" transform="translate(264,132) rotate(90)" />
+      <use id="tangram-square_part4" xlink:href="#triangle_small" class="four" x="132" y="66" />
+      <use id="tangram-square_part5" xlink:href="#square" class="six" transform="translate(132,132) rotate(45)" />
+      <use id="tangram-square_part6" xlink:href="#para" class="seven" x="198" y="0" />
+      <use id="tangram-square_part7" xlink:href="#triangle_small" class="five" transform="translate(132,197) rotate(90)" />
+    </symbol>
+    <symbol id="tangram-ship">
+      <text class="tangram" x="40" y="250">ship</text>
+      <use id="tangram-ship_part1" xlink:href="#triangle_big" class="one" transform="translate(140,0) rotate(90)" />
+      <use id="tangram-ship_part2" xlink:href="#triangle_big" class="two" transform="translate(290,0)  rotate(90)" />
+      <use id="tangram-ship_part3" xlink:href="#triangle_medium" class="three" transform="translate(400,80) scale(-1 1) rotate(45)" />
+      <use id="tangram-ship_part4" xlink:href="#triangle_small" class="four" transform="translate(281,218) rotate(45)" />
+      <use id="tangram-ship_part5" xlink:href="#para" class="seven" transform="translate(374,218) rotate(45) " />
+      <use id="tangram-ship_part6" xlink:href="#triangle_small" class="five" transform="translate(187,311) rotate(135)" />
+      <use id="tangram-ship_part7" xlink:href="#square" class="six" transform="translate(140,264)" />
+    </symbol>
+    <symbol id="tangram-cat">
+      <text class="tangram" x="30" y="50">cat</text>
+      <use id="tangram-cat_part1" xlink:href="#triangle_big" class="one" transform="translate(300,95) rotate(110)" />
+      <use id="tangram-cat_part2" xlink:href="#triangle_big" class="two" transform="translate(300,95) scale(-1 1) rotate(115)" />
+      <use id="tangram-cat_part3" xlink:href="#triangle_medium" class="three" transform="translate(300,95) rotate(65)" />
+      <use id="tangram-cat_part4" xlink:href="#triangle_small" class="four" transform="translate(66,40) scale(-1 1)" />
+      <use id="tangram-cat_part5" xlink:href="#para" class="seven" transform="translate(540,-25) rotate(20)" />
+      <use id="tangram-cat_part6" xlink:href="#triangle_small" class="five" transform="translate(66,40) " />
+      <use id="tangram-cat_part7" xlink:href="#square" class="six" transform="translate(66,107) rotate(45)" />
+    </symbol>
+    <symbol id="tangram-bird">
+      <text class="tangram" x="30" y="50">bird</text>
+      <use id="tangram-bird_part1" xlink:href="#triangle_big" class="one" transform="translate(227,162)" />
+      <use id="tangram-bird_part2" xlink:href="#triangle_big" class="two" transform="translate(162,362) scale(1 -1)" />
+      <use id="tangram-bird_part3" xlink:href="#triangle_medium" class="three" transform="translate(353,165) rotate(-90)" />
+      <use id="tangram-bird_part4" xlink:href="#triangle_small" class="four" transform="translate(487,97) rotate(90)" />
+      <use id="tangram-bird_part5" xlink:href="#para" class="seven" transform="translate(50,23) scale(-1 1) rotate(45) " />
+      <use id="tangram-bird_part6" xlink:href="#triangle_small" class="five" transform="translate(227,228) scale(1-1) rotate(90)" />
+      <use id="tangram-bird_part7" xlink:href="#square" class="six" transform="translate(227,162) rotate(45)" />
+    </symbol>
+  </defs>
+  <g id="tangram" transform="scale(0.5 0.5)">
+    <use id="t_square" xlink:href="#tangram-square" x="10" y="10" />
+    <use id="t_ship" xlink:href="#tangram-ship" x="400" y="10" />
+    <use id="t_cat" xlink:href="#tangram-cat" x="10" y="400" />
+    <use id="t_bird" xlink:href="#tangram-bird" x="10" y="730" />
+  </g>
+-->
+
+  <!-- issue inkscape-applytransforms/issues/15 - apply to an ellipse in a group -->
+  <text class="desc" x="380" y="960">Issue #15 - apply to an ellipse in a group</text>
+  <g id="issue-15"
+    transform="translate(550, 750)">
+    <ellipse
+      id="issue-15_1"
+      cx="0" cy="0" rx="50" ry="30"
+      style="fill:#0050DB;stroke-width:1.5"
+      transform="scale(1 0.5)" />
+    <ellipse
+      id="issue-15_2"
+      cx="0" cy="50" rx="60" ry="40"
+      style="fill:#0CB5F2;stroke-width:1.5"
+      transform="scale(0.5 1)" />
+    <ellipse
+      id="issue-15_3"
+      cx="0" cy="100" rx="30" ry="15"
+      style="fill:#05E8D0;stroke-width:1.5"
+      transform="translate(0 10)" />
+
+  </g>
 
   <!-- issue inkscape-applytransforms/issues/19 - `circle` elements don't get transformed -->
-  <g
-    id="issue-19"
-    transform="scale(1,-1)">
-
+  <text class="desc" x="720" y="900">Issue #19 - `circle` elements don't get transformed</text>
+  <g id="issue-19"
+    transform="translate(900, 800) scale(1,-1)">
     <path
-      id="Sketch_w0000"
+      id="issue-19_1"
       d="M 55.4688875547 -1.85809403416 A 55.5 55.5 0 0 1 26.1253 48.9665L 4.25249202985 62.3520562162 A 8.14678 8.14678 0 0 1 -4.25249 62.3521L -26.1252871412 48.9665127591 A 55.5 55.5 0 0 1 -55.4689 -1.85809L -56.1247106763 -27.4932619809 A 8.14678 8.14678 0 0 1 -51.8722 -34.8588L -29.3436004136 -47.108418725 A 55.5 55.5 0 0 1 29.3436 -47.1084L 51.8722186465 -34.8587942353 A 8.14678 8.14678 0 0 1 56.1247 -27.4933L 55.4688875547 -1.85809403416 "
-      stroke="#000000"
-      stroke-width="0.35 px"
-      style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none;fill-rule:evenodd"/>
+      style="stroke:#000;stroke-width:0.35;fill:#29292955;fill-rule:evenodd"/>
 
     <circle
-      cx="4.39931227243e-24"
-      cy="1.67346641155e-24"
-      r="13.1445"
-      stroke="#000000"
-      stroke-width="0.35 px"
-      style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
-
+      id="issue-19_2"
+      cx="4.39931227243e-24" cy="1.67346641155e-24" r="13.1445"
+      style="stroke:#000;stroke-width:0.35;fill:#e0e0e055" />
     <circle
-      cx="-47.9806"
-      cy="-27.7016123259"
-      r="3.3782"
-      stroke="#000000"
-      stroke-width="0.35 px"
-      style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
-
+      id="issue-19_3"
+      cx="-47.9806" cy="-27.7016123259" r="3.3782"
+      style="stroke:#000;stroke-width:0.35;fill:#50000055" />
     <circle
-      cx="2.61025905349e-29"
-      cy="55.4032246518"
-      r="3.3782"
-      stroke="#000000"
-      stroke-width="0.35 px"
-      style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
-
+      id="issue-19_4"
+      cx="2.61025905349e-29" cy="55.4032246518" r="3.3782"
+      style="stroke:#000;stroke-width:0.35;fill:#00500055" />
     <circle
-      cx="47.9806"
-      cy="-27.7016123259"
-      r="3.3782"
-      stroke="#000000"
-      stroke-width="0.35 px"
-      style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;fill:none"/>
-
-    <title>Sketch</title>
-    </g>
+      id="issue-19_5"
+      cx="47.9806" cy="-27.7016123259" r="3.3782"
+      style="stroke:#000;stroke-width:0.35;fill:#00005055" />
+  </g>
 
 
   <!-- issue inkscape-applytransforms/issues/10 - remove all scale transformations  -->
+  <text class="desc" x="680" y="1420">Issue #19 - remove all scale transformations</text>
+<!-- Shape rect not yet supported
   <rect
     id="issue-10"
-    d="  m -369.08313,-196.79971 h 76.69942 v 52.65435 h -76.69942 z"
-    style="fill:#0000ff"
-    transform="rotate(43.228035)
-                scale(1,-1)" />
+    x="350" y="20" width="100" height="100" rx="15" ry="30"
+    style="fill:#00DB67"
+    transform="translate(680, 950) rotate(45) scale(1,1)" />
+-->
 
-  <!-- test for rect -->              
-  <!--
-  <rect
-    id="issue-10"
-    y="260.50827"
-    x="-175.45432"
-    height="52.654354"
-    width="76.699425"
-    style="fill:#0000ff"
-    transform="rotate(43.228035)
-                scale(1,-1)" /> -->
+  <!-- test for rect -->
+  <text class="desc" x="380" y="1420">Rectangle</text>
+<!-- Shape rect not yet supported
+  <g id="test-path-group" transform="translate(380, 1260)">
+    <rect
+      id="rectangle"
+      y="-20.50827"
+      x="30.45432"
+      height="52.654354"
+      width="76.699425"
+      style="fill:#fff"
+      transform="rotate(30.228035, 15, 15)
+      scale(1, -1)" />
+  </g>
+-->
 
-<!--
-  text
-  image
-  use -->
 </svg>
