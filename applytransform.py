@@ -19,7 +19,7 @@ class ApplyTransform(inkex.EffectExtension):
 
     def effect(self):
         if self.svg.selected:
-            for shape in self.svg.selected.items():
+            for (_, shape) in self.svg.selected.items():
                 self.recursiveFuseTransform(shape)
         else:
             self.recursiveFuseTransform(self.document.getroot())
