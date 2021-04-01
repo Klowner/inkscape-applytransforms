@@ -72,7 +72,7 @@ class ApplyTransform(inkex.EffectExtension):
             d = node.get('d')
             p = CubicSuperPath(d)
             p = Path(p).to_absolute().transform(transf, True)
-            node.set('d', Path(CubicSuperPath(p).to_path()))
+            node.set('d', str(Path(CubicSuperPath(p).to_path())))
 
             self.scaleStrokeWidth(node, transf)
 
