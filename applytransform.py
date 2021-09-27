@@ -45,7 +45,7 @@ class ApplyTransform(inkex.EffectExtension):
 
             if 'stroke-width' in style:
                 try:
-                    stroke_width = float(style.get('stroke-width').strip().replace("px", ""))
+                    stroke_width = self.svg.uutounit(style.get('stroke-width').strip())
                     stroke_width *= math.sqrt(abs(transf.a * transf.d))
                     style['stroke-width'] = str(stroke_width)
                     update = True
