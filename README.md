@@ -30,4 +30,4 @@ Activate the extension from the main menu:
 
 or use it from the command line. The id of the extension is automatically available as a verb:
 
-> `inkscape -g --verb com.klowner.filter.applytransform test.svg`
+> `inkscape -g --verb com.klowner.filter.apply_transform test.svg`
