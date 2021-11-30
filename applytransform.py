@@ -45,11 +45,11 @@ class ApplyTransform(inkex.EffectExtension):
 
             if 'stroke-width' in style:
                 try:
-                    stroke_width = self.svg.uutounit(style.get('stroke-width').strip())
-                    stroke_width *= math.sqrt(abs(transf.a * transf.d))
+                    stroke_width = self.svg.unittouu(style.get('stroke-width')) / self.svg.unittouu("1px")
+                    stroke_width *= math.sqrt(abs(transf.a * transf.d - transf.b * transf.c))
                     style['stroke-width'] = str(stroke_width)
                     update = True
-                except AttributeError:
+                except AttributeError as e:
                     pass
 
             if update:
