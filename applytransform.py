@@ -29,6 +29,12 @@ class ApplyTransform(inkex.EffectExtension):
         if node.tag == inkex.addNS('g', 'svg'):
             return node
 
+        if node.tag == inkex.addNS('rect', 'svg'):
+            d = node.get_path()
+
+            node.tag = "path"
+            node.set("d", d)
+
         if node.tag == inkex.addNS('path', 'svg') or node.tag == 'path':
             for attName in node.attrib.keys():
                 if ("sodipodi" in attName) or ("inkscape" in attName):
@@ -55,9 +61,10 @@ class ApplyTransform(inkex.EffectExtension):
             if update:
                 node.attrib['style'] = Style(style).to_str()
 
+
     def recursiveFuseTransform(self, node, transf=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]):
 
-        transf = Transform(transf) * Transform(node.get("transform", None))
+        transf = Transform(transf) @ Transform(node.get("transform", None))
 
         if 'transform' in node.attrib:
             del node.attrib['transform']
@@ -139,8 +146,7 @@ class ApplyTransform(inkex.EffectExtension):
             else:
                 node.set("r", edgex / 2)
 
-        elif node.tag in [inkex.addNS('rect', 'svg'),
-                          inkex.addNS('text', 'svg'),
+        elif node.tag in [inkex.addNS('text', 'svg'),
                           inkex.addNS('image', 'svg'),
                           inkex.addNS('use', 'svg')]:
             node.attrib['transform'] = str(transf)

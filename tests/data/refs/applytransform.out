@@ -49,7 +49,7 @@
 
   <!-- test for text -->
   <text class="desc" x="380" y="1160">Text</text>
-<!-- Shape rect not yet supported
+<!-- Shape text not yet supported
   <g
     id="text"
     transform="translate(380,1060)">
@@ -205,28 +205,12 @@
 
   <!-- issue inkscape-applytransforms/issues/10 - remove all scale transformations  -->
   <text class="desc" x="680" y="1420">Issue #19 - remove all scale transformations</text>
-<!-- Shape rect not yet supported
-  <rect
-    id="issue-10"
-    x="350" y="20" width="100" height="100" rx="15" ry="30"
-    style="fill:#00DB67"
-    transform="translate(680, 950) rotate(45) scale(1,1)" />
--->
+  <path id="issue-10" x="350" y="20" width="100" height="100" rx="15" ry="30" style="fill:#00DB67" d="M 923.952 1222.24 L 973.449 1271.73 C 976.262 1274.55 976.725 1279.48 974.736 1285.45 C 972.747 1291.41 968.469 1297.93 962.843 1303.55 L 934.559 1331.84 C 928.932 1337.46 922.419 1341.74 916.452 1343.73 C 910.485 1345.72 905.552 1345.26 902.739 1342.44 L 853.241 1292.95 C 850.428 1290.13 849.965 1285.2 851.954 1279.23 C 853.944 1273.27 858.222 1266.75 863.848 1261.13 L 892.132 1232.84 C 897.758 1227.22 904.271 1222.94 910.239 1220.95 C 916.206 1218.96 921.139 1219.42 923.952 1222.24 Z"/>
 
   <!-- test for rect -->
   <text class="desc" x="380" y="1420">Rectangle</text>
-<!-- Shape rect not yet supported
-  <g id="test-path-group" transform="translate(380, 1260)">
-    <rect
-      id="rectangle"
-      y="-20.50827"
-      x="30.45432"
-      height="52.654354"
-      width="76.699425"
-      style="fill:#fff"
-      transform="rotate(30.228035, 15, 15)
-      scale(1, -1)" />
+  <g id="test-path-group">
+    <path id="rectangle" y="-20.50827" x="30.45432" height="52.654354" width="76.699425" style="fill:#fff" d="M 405.58 1287.54 L 471.85 1326.15 L 498.359 1280.66 L 432.088 1242.04 Z"/>
   </g>
--->
 
 </svg>
