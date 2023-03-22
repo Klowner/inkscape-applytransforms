@@ -12,7 +12,6 @@ from inkex.styles import Style
 
 NULL_TRANSFORM = Transform([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]])
 
-
 class ApplyTransform(inkex.EffectExtension):
     def __init__(self):
         super(ApplyTransform, self).__init__()
@@ -29,6 +28,12 @@ class ApplyTransform(inkex.EffectExtension):
         if node.tag == inkex.addNS('g', 'svg'):
             return node
 
+        if node.tag == inkex.addNS('rect', 'svg'):
+            d = node.get_path()
+
+            node.tag = "path"
+            node.set("d", d)
+
         if node.tag == inkex.addNS('path', 'svg') or node.tag == 'path':
             for attName in node.attrib.keys():
                 if ("sodipodi" in attName) or ("inkscape" in attName):
@@ -38,26 +43,25 @@ class ApplyTransform(inkex.EffectExtension):
         return node
 
     def scaleStrokeWidth(self, node, transf):
-        if 'style' in node.attrib:
-            style = node.attrib.get('style')
-            style = dict(Style.parse_str(style))
-            update = False
+        if not 'style' in node.attrib:
+            return
 
-            if 'stroke-width' in style:
-                try:
-                    stroke_width = self.svg.unittouu(style.get('stroke-width')) / self.svg.unittouu("1px")
-                    stroke_width *= math.sqrt(abs(transf.a * transf.d - transf.b * transf.c))
-                    style['stroke-width'] = str(stroke_width)
-                    update = True
-                except AttributeError as e:
-                    pass
+        style = node.attrib.get('style')
+        style = dict(Style.parse_str(style))
+        update = False
 
-            if update:
-                node.attrib['style'] = Style(style).to_str()
+        if 'stroke-width' in style:
+            stroke_width = self.svg.unittouu(style.get('stroke-width')) / self.svg.unittouu("1px")
+            stroke_width *= math.sqrt(abs(transf.a * transf.d - transf.b * transf.c))
+            style['stroke-width'] = str(stroke_width)
+            update = True
+
+        if update:
+            node.attrib['style'] = Style(style).to_str()
 
     def recursiveFuseTransform(self, node, transf=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]):
 
-        transf = Transform(transf) * Transform(node.get("transform", None))
+        transf = Transform(transf) @ Transform(node.get("transform", None))
 
         if 'transform' in node.attrib:
             del node.attrib['transform']
@@ -71,8 +75,8 @@ class ApplyTransform(inkex.EffectExtension):
         elif 'd' in node.attrib:
             d = node.get('d')
             p = CubicSuperPath(d)
-            p = Path(p).to_absolute().transform(transf, True)
-            node.set('d', str(Path(CubicSuperPath(p).to_path())))
+            p = Path(p).transform(transf, True)
+            node.set('d', str(p))
 
             self.scaleStrokeWidth(node, transf)
 
@@ -139,8 +143,7 @@ class ApplyTransform(inkex.EffectExtension):
             else:
                 node.set("r", edgex / 2)
 
-        elif node.tag in [inkex.addNS('rect', 'svg'),
-                          inkex.addNS('text', 'svg'),
+        elif node.tag in [inkex.addNS('text', 'svg'),
                           inkex.addNS('image', 'svg'),
                           inkex.addNS('use', 'svg')]:
             node.attrib['transform'] = str(transf)
