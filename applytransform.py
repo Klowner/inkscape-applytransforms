@@ -136,8 +136,11 @@ class ApplyTransform(inkex.EffectExtension):
             else:
                 node.set("r", edgex / 2)
 
+        elif node.tag in [inkex.addNS('text', 'svg')]:
+            p = transf.apply_to_point((float(node.attrib['x']),float(node.attrib['y'])))
+            node.set("x", p[0])
+            node.set("y", p[1])
         elif node.tag in [inkex.addNS('rect', 'svg'),
-                          inkex.addNS('text', 'svg'),
                           inkex.addNS('image', 'svg'),
                           inkex.addNS('use', 'svg')]:
             node.attrib['transform'] = str(transf)
