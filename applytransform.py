@@ -57,7 +57,7 @@ class ApplyTransform(inkex.EffectExtension):
 
     def recursiveFuseTransform(self, node, transf=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]):
 
-        transf = Transform(transf) * Transform(node.get("transform", None))
+        transf = Transform(transf) @ Transform(node.get("transform", None))
 
         if 'transform' in node.attrib:
             del node.attrib['transform']
@@ -128,10 +128,7 @@ class ApplyTransform(inkex.EffectExtension):
                 or not isequal(newxy2[0], newxy3[0])
                 or not isequal(newxy1[1], newxy2[1])
             ):
-                inkex.utils.errormsg(
-                    "Warning: Shape %s (%s) is approximate only, try Object to path first for better results"
-                    % (node.TAG, node.get("id"))
-                )
+                inkex.utils.errormsg(f"Warning: Shape {node.TAG} ({node.get('id')}) is approximate only, try Object to path first for better results")
 
             if node.TAG == "ellipse":
                 node.set("rx", edgex / 2)
@@ -144,10 +141,7 @@ class ApplyTransform(inkex.EffectExtension):
                           inkex.addNS('image', 'svg'),
                           inkex.addNS('use', 'svg')]:
             node.attrib['transform'] = str(transf)
-            inkex.utils.errormsg(
-                "Shape %s (%s) not yet supported. Not all transforms will be applied. Try Object to path first"
-                % (node.TAG, node.get("id"))
-            )
+            inkex.utils.errormsg(f"Shape {node.TAG} ({node.get('id')}) not yet supported. Not all transforms will be applied. Try Object to path first")
 
         else:
             # e.g. <g style="...">
