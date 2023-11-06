@@ -11,6 +11,16 @@
     }
   </style>
 
+  <!-- test for path stroke -->
+  <text class="desc" x="100" y="150">Single Path Stroke</text>
+  <path
+    id="heart-stroke"
+    d="M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z"
+    transform="translate(150,0) scale(0.5, 0.5)"
+    style="fill:#dbf153"
+    stroke="#4444ff"
+    stroke-width="5" />
+
   <!-- test for path -->
   <text class="desc" x="420" y="150">Single Path</text>
   <path id="heart" d="M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z" transform="translate(500,0)" style="fill:#db0153" />
