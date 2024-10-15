@@ -205,28 +205,12 @@
 
   <!-- issue inkscape-applytransforms/issues/10 - remove all scale transformations  -->
   <text class="desc" x="680" y="1420">Issue #19 - remove all scale transformations</text>
-<!-- Shape rect not yet supported
-  <rect
-    id="issue-10"
-    x="350" y="20" width="100" height="100" rx="15" ry="30"
-    style="fill:#00DB67"
-    transform="translate(680, 950) rotate(45) scale(1,1)" />
--->
+  <rect id="issue-10" x="863.3452945275524" y="1232.3402745275525" width="100.00003094489523" height="100.00003094489523" rx="15.000004641734284" ry="30.000009283468568" style="fill:#00DB67" transform="matrix(0.707107 0.707107 -0.707107 0.707107 1174.26 -270.244)"/>
 
   <!-- test for rect -->
   <text class="desc" x="380" y="1420">Rectangle</text>
-<!-- Shape rect not yet supported
-  <g id="test-path-group" transform="translate(380, 1260)">
-    <rect
-      id="rectangle"
-      y="-20.50827"
-      x="30.45432"
-      height="52.654354"
-      width="76.699425"
-      style="fill:#fff"
-      transform="rotate(30.228035, 15, 15)
-      scale(1, -1)" />
+  <g id="test-path-group">
+    <rect id="rectangle" y="1257.771944407223" x="413.61964634993626" height="52.65437946074344" width="76.69946208761449" style="fill:#fff" transform="matrix(0.864029 0.503443 -0.503443 0.864029 707.925 -52.9399)"/>
   </g>
--->
 
 </svg>

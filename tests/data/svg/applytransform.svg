@@ -265,17 +265,14 @@
 
   <!-- issue inkscape-applytransforms/issues/10 - remove all scale transformations  -->
   <text class="desc" x="680" y="1420">Issue #19 - remove all scale transformations</text>
-<!-- Shape rect not yet supported
   <rect
     id="issue-10"
     x="350" y="20" width="100" height="100" rx="15" ry="30"
     style="fill:#00DB67"
     transform="translate(680, 950) rotate(45) scale(1,1)" />
--->
 
   <!-- test for rect -->
   <text class="desc" x="380" y="1420">Rectangle</text>
-<!-- Shape rect not yet supported
   <g id="test-path-group" transform="translate(380, 1260)">
     <rect
       id="rectangle"
@@ -287,6 +284,5 @@
       transform="rotate(30.228035, 15, 15)
       scale(1, -1)" />
   </g>
--->
 
 </svg>
