@@ -55,6 +55,47 @@ class ApplyTransform(inkex.EffectExtension):
             if update:
                 node.attrib['style'] = Style(style).to_str()
 
+    def transformRectangle(self, node, transf: Transform):
+        x = float(node.get('x', '0'))
+        y = float(node.get('y', '0'))
+        width = float(node.get('width', '0'))
+        height = float(node.get('height', '0'))
+        rx = float(node.get('rx', '0'))
+        ry = float(node.get('ry', '0'))
+
+        # Extract translation, scaling and rotation
+        a, b, c, d = transf.a, transf.b, transf.c, transf.d
+        tx, ty = transf.e, transf.f
+        sx = math.sqrt(a**2 + c**2)
+        sy = math.sqrt(b**2 + d**2)
+        angle = math.degrees(math.atan2(b, a))
+
+        # Calculate the center of the rectangle
+        cx = x + width / 2
+        cy = y + height / 2
+
+        # Apply the transformation to the center point
+        new_cx, new_cy = transf.apply_to_point((cx, cy))
+        new_x = new_cx - (width * sx) / 2
+        new_y = new_cy - (height * sy) / 2
+
+        # Update rectangle attributes
+        node.set('x', str(new_x))
+        node.set('y', str(new_y))
+        node.set('width', str(width * sx))
+        node.set('height', str(height * sy))
+      
+        # Apply scale to rx and ry if they exist
+        if rx > 0:
+            node.set('rx', str(rx * sx))
+        if ry > 0:
+            node.set('ry', str(ry * sy))
+  
+        # Add rotation if it exists
+        if abs(angle) > 1e-6:
+            tr = Transform(f"rotate({angle:.6f},{new_cx:.6f},{new_cy:.6f})")
+            node.set('transform',tr)
+
     def recursiveFuseTransform(self, node, transf=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]):
 
         transf = Transform(transf) @ Transform(node.get("transform", None))
@@ -136,8 +177,11 @@ class ApplyTransform(inkex.EffectExtension):
             else:
                 node.set("r", edgex / 2)
 
-        elif node.tag in [inkex.addNS('rect', 'svg'),
-                          inkex.addNS('text', 'svg'),
+        elif node.tag == inkex.addNS('rect', 'svg'):
+            self.transformRectangle(node, transf)
+            self.scaleStrokeWidth(node, transf)
+
+        elif node.tag in [inkex.addNS('text', 'svg'),
                           inkex.addNS('image', 'svg'),
                           inkex.addNS('use', 'svg')]:
             node.attrib['transform'] = str(transf)
