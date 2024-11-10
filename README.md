@@ -30,6 +30,12 @@ Activate the extension from the main menu:
 
 > Extensions | Modify Path | Apply Transform
 
-or use it from the command line. The id of the extension is automatically available as a verb:
+or use it from the command line. The id of the extension is automatically available as an action:
+
+> `inkscapecom -g --actions=com.klowner.filter.apply-transform test.svg`
+
+or for older versions of Inkscape:
 
 > `inkscape -g --verb com.klowner.filter.apply_transform test.svg`
+
+
