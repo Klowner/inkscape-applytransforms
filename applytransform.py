@@ -37,23 +37,30 @@ class ApplyTransform(inkex.EffectExtension):
 
         return node
 
-    def scaleStrokeWidth(self, node, transf):
+    def scaleStyleAttrib(self, node, transf, attrib):
         if 'style' in node.attrib:
             style = node.attrib.get('style')
             style = dict(Style.parse_str(style))
             update = False
 
-            if 'stroke-width' in style:
+            if attrib in style:
                 try:
-                    stroke_width = self.svg.unittouu(style.get('stroke-width')) / self.svg.unittouu("1px")
-                    stroke_width *= math.sqrt(abs(transf.a * transf.d - transf.b * transf.c))
-                    style['stroke-width'] = str(stroke_width)
+                    style_attrib = self.svg.unittouu(style.get(attrib)) / self.svg.unittouu("1px")
+                    style_attrib *= math.sqrt(abs(transf.a * transf.d - transf.b * transf.c))
+                    style[attrib] = str(round(style_attrib, 2)) + 'px'
                     update = True
                 except AttributeError as e:
                     pass
 
             if update:
                 node.attrib['style'] = Style(style).to_str()
+
+    def scaleMultiple(self, string, factor):
+        array = string.strip().split(' ')
+        for k, p in enumerate(array):
+            if p != '0':
+                array[k] = str(float(p) * factor)
+        return ' '.join(array)
 
     def transformRectangle(self, node, transf: Transform):
         x = float(node.get('x', '0'))
@@ -96,6 +103,57 @@ class ApplyTransform(inkex.EffectExtension):
             tr = Transform(f"rotate({angle:.6f},{new_cx:.6f},{new_cy:.6f})")
             node.set('transform',tr)
 
+    def transformText(self, node, transf: Transform):
+        x = float(node.get('x', '0'))
+        y = float(node.get('y', '0'))
+        new_x, new_y = transf.apply_to_point((x, y))
+
+        node.set("x", str(new_x))
+        node.set("y", str(new_y))
+
+        # Extract translation, scaling and rotation
+        a, b, c, d = transf.a, transf.b, transf.c, transf.d
+        sx = math.sqrt(a**2 + c**2)
+        sy = math.sqrt(b**2 + d**2)
+        angle = math.degrees(math.atan2(b, a))
+
+        if 'dx' in node.attrib:
+            node.set('dx', self.scaleMultiple(node.get('dx'), sx))
+
+        if 'dy' in node.attrib:
+            node.set('dy', self.scaleMultiple(node.get('dy'), sy))
+
+        # Add rotation if it exists
+        if abs(angle) > 1e-6:
+            node.attrib['transform'] = str(f"rotate({angle:.3f} {new_x:.3f} {new_y:.3f})")
+
+    def transformTspan(self, node, transf: Transform):
+        x = float(node.get('x', '0'))
+        y = float(node.get('y', '0'))
+
+        # Extract translation, scaling, rotation and parent xy
+        a, b, c, d = transf.a, transf.b, transf.c, transf.d
+        sx = math.sqrt(a**2 + b**2)
+        sy = math.sqrt(c**2 + d**2)
+        parentx = node.getparent().get('x', '0')
+        parenty = node.getparent().get('y', '0')
+
+        if 'x' not in node.attrib or x == 0:
+            node.set('x', parentx)
+        else:
+            node.set('x', str(float(parentx) + x * sx))
+
+        if 'y' not in node.attrib or y == 0:
+            node.set('y', parenty)
+        else:
+            node.set('y', str(float(parenty) + y * sy))
+
+        if 'dx' in node.attrib:
+            node.set('dx', self.scaleMultiple(node.get('dx'), sx))
+
+        if 'dy' in node.attrib:
+            node.set('dy', self.scaleMultiple(node.get('dy'), sy))
+    
     def recursiveFuseTransform(self, node, transf=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]):
 
         transf = Transform(transf) @ Transform(node.get("transform", None))
@@ -115,7 +173,7 @@ class ApplyTransform(inkex.EffectExtension):
             p = Path(p).to_absolute().transform(transf, True)
             node.set('d', str(Path(CubicSuperPath(p).to_path())))
 
-            self.scaleStrokeWidth(node, transf)
+            self.scaleStyleAttrib(node, transf, 'stroke-width')
 
         elif node.tag in [inkex.addNS('polygon', 'svg'),
                           inkex.addNS('polyline', 'svg')]:
@@ -132,7 +190,7 @@ class ApplyTransform(inkex.EffectExtension):
             points = ' '.join(points)
             node.set('points', points)
 
-            self.scaleStrokeWidth(node, transf)
+            self.scaleStyleAttrib(node, transf, 'stroke-width')
 
         elif node.tag in [inkex.addNS("ellipse", "svg"), inkex.addNS("circle", "svg")]:
 
@@ -179,17 +237,24 @@ class ApplyTransform(inkex.EffectExtension):
 
         elif node.tag == inkex.addNS('rect', 'svg'):
             self.transformRectangle(node, transf)
-            self.scaleStrokeWidth(node, transf)
+            self.scaleStyleAttrib(node, transf, 'stroke-width')
 
-        elif node.tag in [inkex.addNS('text', 'svg'),
-                          inkex.addNS('image', 'svg'),
+        elif node.tag in [inkex.addNS('text', 'svg')]:
+            self.transformText(node, transf)
+            self.scaleStyleAttrib(node, transf, 'font-size')
+
+        elif node.tag in [inkex.addNS('tspan', 'svg')]:
+            self.transformTspan(node, transf)
+            self.scaleStyleAttrib(node, transf, 'font-size')
+
+        elif node.tag in [inkex.addNS('image', 'svg'),
                           inkex.addNS('use', 'svg')]:
             node.attrib['transform'] = str(transf)
             inkex.utils.errormsg(f"Shape {node.TAG} ({node.get('id')}) not yet supported. Not all transforms will be applied. Try Object to path first")
 
         else:
             # e.g. <g style="...">
-            self.scaleStrokeWidth(node, transf)
+            self.scaleStyleAttrib(node, transf, 'stroke-width')
 
         for child in node.getchildren():
             self.recursiveFuseTransform(child, transf)

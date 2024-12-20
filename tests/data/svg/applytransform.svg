@@ -80,7 +80,6 @@
 
   <!-- test for text -->
   <text class="desc" x="380" y="1160">Text</text>
-<!-- Shape rect not yet supported
   <g
     id="text"
     transform="translate(380,1060)">
@@ -89,11 +88,9 @@
     <text id="text-3" x="55" y="55" style="font-family:sans-serif;font-style:italic;font-size:13px">is</text>
     <text id="text-4" x="65" y="55" style="font-family:serif;font-style:italic;font-size:30px" fill="red">Grumpy!</text>
   </g>
--->
 
   <!-- test for text with tspan -->
   <text class="desc" x="720" y="1160">Text with tspan</text>
-<!-- Shape text not yet supported
   <text
     id="text-tspan"
     style="font-style:oblique;font-size:18px;font-family:'DejaVu Sans'"
@@ -102,8 +99,17 @@
     <tspan id="text-tspan-1" x="40" y="20">The quick brown fox</tspan>
     <tspan id="text-tspan-2" x="80" y="40">jumps over the lazy dog.</tspan>
   </text>
--->
 
+  <!-- test for text with tspan, rotation and non uniform scaling -->
+  <text class="desc" x="1000" y="1160">Text with tspan, rotation and non uniform scaling</text>
+  <text
+    id="text-tspan-rs"
+    style="font-style:oblique;font-size:18px;font-family:'DejaVu Sans'"
+    transform="matrix(0.97,-0.24,0.73,2.91,1000,1000)">
+
+    <tspan id="text-tspan-rs-1" x="40" y="20">The quick brown fox</tspan>
+    <tspan id="text-tspan-rs-2" x="80" y="40">jumps over the lazy dog.</tspan>
+  </text>
   <!-- test for image -->
 
 
