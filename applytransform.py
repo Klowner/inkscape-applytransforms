@@ -66,8 +66,8 @@ class ApplyTransform(inkex.EffectExtension):
         # Extract translation, scaling and rotation
         a, b, c, d = transf.a, transf.b, transf.c, transf.d
         tx, ty = transf.e, transf.f
-        sx = math.sqrt(a**2 + c**2)
-        sy = math.sqrt(b**2 + d**2)
+        sx = math.sqrt(a**2 + b**2)
+        sy = math.sqrt(c**2 + d**2)
         angle = math.degrees(math.atan2(b, a))
 
         # Calculate the center of the rectangle

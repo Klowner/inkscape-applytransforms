@@ -280,9 +280,9 @@
       x="30.45432"
       height="52.654354"
       width="76.699425"
-      style="fill:#fff"
+      style="fill:#f00"
       transform="rotate(30.228035, 15, 15)
-      scale(1, -1)" />
+      scale(2, -1)" />
   </g>
 
 </svg>
