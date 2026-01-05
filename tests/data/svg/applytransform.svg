@@ -80,29 +80,25 @@
 
   <!-- test for text -->
   <text class="desc" x="380" y="1160">Text</text>
-<!-- Shape rect not yet supported
   <g
     id="text"
-    transform="translate(380,1060)">
+    transform="translate(480,1060) scale(1.5)">
     <text id="text-1" x="20" y="35" style="font-family:sans-serif;font-style:italic;font-size:13px">My</text>
     <text id="text-2" x="40" y="35" style="font-family:sans-serif;font-style:bold;font-size:30px">cat</text>
     <text id="text-3" x="55" y="55" style="font-family:sans-serif;font-style:italic;font-size:13px">is</text>
     <text id="text-4" x="65" y="55" style="font-family:serif;font-style:italic;font-size:30px" fill="red">Grumpy!</text>
   </g>
--->
 
   <!-- test for text with tspan -->
   <text class="desc" x="720" y="1160">Text with tspan</text>
-<!-- Shape text not yet supported
   <text
     id="text-tspan"
     style="font-style:oblique;font-size:18px;font-family:'DejaVu Sans'"
-    transform="translate(720,1060)">
+    transform="translate(820,1060) scale(0.8)">
 
     <tspan id="text-tspan-1" x="40" y="20">The quick brown fox</tspan>
     <tspan id="text-tspan-2" x="80" y="40">jumps over the lazy dog.</tspan>
   </text>
--->
 
   <!-- test for image -->
 

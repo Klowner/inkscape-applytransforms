@@ -1,0 +1,32 @@
+<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" fill="none" viewBox="45 -511 86.335999 86.779998" version="1.1" id="svg33" sodipodi:docname="cubes.svg" width="86.335999" height="86.779999" inkscape:version="1.4.2 (ebf0e940, 2025-05-08)">
+  <sodipodi:namedview id="namedview33" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" showguides="false" inkscape:zoom="1.6124031" inkscape:cx="-45.274038" inkscape:cy="61.709135" inkscape:window-width="3440" inkscape:window-height="1412" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="1" inkscape:current-layer="svg33"/>
+  <defs id="defs2">
+    <radialGradient xlink:href="#a" id="b" cx="69.290001" cy="84.339996" r="8.3839998" fx="69.290001" fy="84.339996" gradientTransform="matrix(1,0,0,1.023,50.77,23.52)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient id="a">
+      <stop offset=".222" stop-color="#bfa25d" id="stop1"/>
+      <stop offset=".635" stop-color="#bfcaa0" stop-opacity="0" id="stop2"/>
+    </linearGradient>
+    <radialGradient inkscape:collect="always" xlink:href="#a" id="radialGradient66" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1,0,0,1.023,50.77,23.52)" cx="69.290001" cy="84.339996" fx="69.290001" fy="84.339996" r="8.3839998"/>
+    <radialGradient inkscape:collect="always" xlink:href="#a" id="radialGradient67" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1,0,0,1.023,50.77,23.52)" cx="69.290001" cy="84.339996" fx="69.290001" fy="84.339996" r="8.3839998"/>
+    <radialGradient inkscape:collect="always" xlink:href="#a" id="radialGradient68" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1,0,0,1.023,50.77,23.52)" cx="69.290001" cy="84.339996" fx="69.290001" fy="84.339996" r="8.3839998"/>
+    <radialGradient inkscape:collect="always" xlink:href="#a" id="radialGradient69" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1,0,0,1.023,50.77,23.52)" cx="69.290001" cy="84.339996" fx="69.290001" fy="84.339996" r="8.3839998"/>
+    <radialGradient inkscape:collect="always" xlink:href="#a" id="radialGradient70" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1,0,0,1.023,50.77,23.52)" cx="69.290001" cy="84.339996" fx="69.290001" fy="84.339996" r="8.3839998"/>
+    <radialGradient inkscape:collect="always" xlink:href="#a" id="radialGradient71" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1,0,0,1.023,50.77,23.52)" cx="69.290001" cy="84.339996" fx="69.290001" fy="84.339996" r="8.3839998"/>
+    <radialGradient inkscape:collect="always" xlink:href="#a" id="radialGradient72" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1,0,0,1.023,50.77,23.52)" cx="69.290001" cy="84.339996" fx="69.290001" fy="84.339996" r="8.3839998"/>
+    <radialGradient inkscape:collect="always" xlink:href="#a" id="radialGradient73" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1,0,0,1.023,50.77,23.52)" cx="69.290001" cy="84.339996" fx="69.290001" fy="84.339996" r="8.3839998"/>
+  </defs>
+  <path stroke="#000000" d="m 126.0092,-505.5 -0.091,50.23 -25.02,24.75 -0.183,-49.87" id="path9"/>
+  <path stroke="#000000" d="m 50.909202,-480.5 24.93,-24.93 50.139998,-0.183 -25.12,25.57" id="path10"/>
+  <path stroke="#000000" d="M 50.909202,-430.4 H 100.8892 l 0.019,-50.06 H 50.858202 Z" id="path11"/>
+  <g fill="url(#b)" opacity="0.7" id="g29" style="fill:url(#b)">
+    <ellipse cx="51.26780000000001" cy="-480.33" fill="url(#b)" id="circle22" style="fill:url(#radialGradient66)" rx="6.167999999999992" ry="6.0"/>
+    <ellipse cx="75.9678" cy="-504.99999999999994" fill="url(#b)" id="circle23" style="fill:url(#radialGradient67)" rx="6.167999999999992" ry="6.0"/>
+    <ellipse cx="100.4678" cy="-480.33" fill="url(#b)" id="circle24" style="fill:url(#radialGradient68)" rx="6.167999999999992" ry="6.0"/>
+    <ellipse cx="125.16779999999999" cy="-504.99999999999994" fill="url(#b)" id="circle25" style="fill:url(#radialGradient69)" rx="6.167999999999992" ry="6.0"/>
+    <ellipse cx="51.167799999999986" cy="-430.21999999999997" fill="url(#b)" id="circle26" style="fill:url(#radialGradient70)" rx="6.167999999999992" ry="6.0"/>
+    <ellipse cx="75.76780000000001" cy="-453.46999999999997" fill="url(#b)" id="circle27" style="fill:url(#radialGradient71)" rx="6.167999999999992" ry="6.0"/>
+    <ellipse cx="100.36779999999997" cy="-430.21999999999997" fill="url(#b)" id="circle28" style="fill:url(#radialGradient72)" rx="6.167999999999992" ry="6.0"/>
+    <ellipse cx="124.9678" cy="-454.88999999999993" fill="url(#b)" id="circle29" style="fill:url(#radialGradient73)" rx="6.167999999999992" ry="6.0"/>
+  </g>
+  <path stroke="#000000" stroke-dasharray="4, 4" d="m 76.409202,-505.56 -0.1,51.85 47.989998,-0.855 m -48.989998,1.764 -23.19,22.22" id="path31"/>
+</svg>
